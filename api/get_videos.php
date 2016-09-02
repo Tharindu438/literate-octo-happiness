@@ -26,7 +26,7 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
             $sql = "";
 
             if (strlen($query) > 0) {
-                $sql .= "`title` LIKE '%" . $query . "%'";
+                $sql .= "((`title` LIKE '%" . $query . "%') OR (`description` LIKE '%" . $query . "%'))";
             }
 
 
@@ -95,8 +95,8 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
                 $line['uid'] = $row['uid'];
                 $line['category'] = $row['category'];
                 $line['title'] = $row['title'];
-		$line['description'] = $row['description'];
-		$line['tags'] = $row['tags'];
+                $line['description'] = $row['description'];
+                $line['tags'] = $row['tags'];
                 $line['specialty'] = $row['specialty'];
                 $line['eventtype'] = $row['eventtype'];
                 $line['organizer'] = $row['organizer'];
