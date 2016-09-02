@@ -37,13 +37,13 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
             $query = $db->query(sprintf("UPDATE `users` SET `email`='" . $email . "', `nick_name`='" . $nick_name . "', `first_name`='" . $first_name . "',
              `last_name`='" . $last_name . "', `dob`='" . $dob . "', `email`='" . $email . "', `phone`='" . $phone . "',
               `mother`='" . $mother . "', `father`='" . $father . "', `city`='" . $city . "', `state`='" . $state . "',
-               `country`='" . $country . "', `sport`='" . $sport . "', `started_year`='" . $started_year . "'"));
+               `country`='" . $country . "', `sport`='" . $sport . "', `started_year`='" . $started_year . "' WHERE `uid` = '$uid'"));
 
             if ((isset($_REQUEST['password']) && !empty($_REQUEST['password']))) {
 
                 $password = (isset($_REQUEST['password']) ? mysqli_real_escape_string($db, $_REQUEST['password']) : "");
 
-                $db->query(sprintf("UPDATE `users` SET `password`='" . $password . "'"));
+                $db->query(sprintf("UPDATE `users` SET `password`='" . $password . "' WHERE `uid` = '$uid'"));
             }
 
             if ($query) {
