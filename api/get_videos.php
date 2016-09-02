@@ -46,7 +46,7 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
 
                 }
 
-                $sql .= " ( " . $queString . " ) ";
+//                $sql .= " ( " . $queString . " ) ";
 
             }
 
