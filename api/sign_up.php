@@ -23,7 +23,7 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
             $username = mysqli_real_escape_string($db, $_REQUEST['username']);
             $password = mysqli_real_escape_string($db, $_REQUEST['password']);
 
-            $password = encrypt($password);
+//            $password = encrypt($password);
 
         } else {
             $username = "";
