@@ -106,7 +106,7 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
                 $sql = " WHERE " . $sql;
             }
 
-            var_dump($sql);
+//            var_dump($sql);
 
             $result = $db->query("SELECT * FROM `videos` " . $sql);
 
