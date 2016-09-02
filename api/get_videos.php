@@ -38,7 +38,7 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
                             $queString .= " OR ";
                         }
 
-                        $sql .= "((`title` LIKE '%" . $quer . "%') OR (`description` LIKE '%" . $quer . "%') 
+                        $queString .= "((`title` LIKE '%" . $quer . "%') OR (`description` LIKE '%" . $quer . "%') 
                          OR (`category` LIKE '%" . $quer . "%') OR (`tags` LIKE '%" . $quer . "%') 
                          OR (`specialty` LIKE '%" . $quer . "%') OR (`eventtype` LIKE '%" . $quer . "%') 
                          OR (`organizer` LIKE '%" . $quer . "%') OR (`place` LIKE '%" . $quer . "%'))";
@@ -46,7 +46,7 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
 
                 }
 
-//                $sql .= " ( " . $queString . " ) ";
+                $sql .= " ( " . $queString . " ) ";
 
             }
 
