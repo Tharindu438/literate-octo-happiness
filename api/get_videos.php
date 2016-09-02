@@ -26,7 +26,28 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
             $sql = "";
 
             if (strlen($query) > 0) {
-                $sql .= "((`title` LIKE '%" . $query . "%') OR (`description` LIKE '%" . $query . "%'))";
+
+                $queString = "";
+
+                $que = explode(',', $query);
+                foreach ($que as $quer) {
+
+                    if (strlen($quer) > 1) {
+
+                        if (strlen($queString) > 1) {
+                            $queString .= " OR ";
+                        }
+
+                        $sql .= "((`title` LIKE '%" . $quer . "%') OR (`description` LIKE '%" . $quer . "%') 
+                         OR (`category` LIKE '%" . $quer . "%') OR (`tags` LIKE '%" . $quer . "%') 
+                         OR (`specialty` LIKE '%" . $quer . "%') OR (`eventtype` LIKE '%" . $quer . "%') 
+                         OR (`organizer` LIKE '%" . $quer . "%') OR (`place` LIKE '%" . $quer . "%'))";
+                    }
+
+                }
+
+                $sql .= " ( " . $queString . " ) ";
+
             }
 
 
@@ -84,6 +105,8 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
             if (strlen($sql) > 1) {
                 $sql = " WHERE " . $sql;
             }
+
+            var_dump($sql);
 
             $result = $db->query("SELECT * FROM `videos` " . $sql);
 
