@@ -19,7 +19,7 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
 
         if ($result->num_rows == 1) {
 
-            $result = $db->query("SELECT * FROM `categories` ORDER BY `id` DESC");
+            $result = $db->query("SELECT * FROM `categories` ORDER BY `id` ASC");
 
             $rows = array();
             while ($row = $result->fetch_assoc()) {
