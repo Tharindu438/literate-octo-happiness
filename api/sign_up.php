@@ -45,6 +45,30 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
                 $query = $db->query("INSERT INTO `users`(`login_type`, `username`, `password`, `fb_id`, `email`) VALUES ('$type', '$username', '$password', '$fb_id', '$email')");
 
                 if ($query) {
+
+                    if(isset($_REQUEST['email']) && !empty($_REQUEST['email'])) {
+                        $to = $_REQUEST['email'];
+                        $subject = "You have successfully registered";
+
+                        $message = "
+                            <html>
+                            <head>
+                            <title>You have successfully registered</title>
+                            </head>
+                            <body>
+                            <p>You have successfully registered for sportshowcase by the username ".$username." and your password is ".$password."</p>
+                            </body>
+                            </html>
+                            ";
+
+                        $headers = "MIME-Version: 1.0" . "\r\n";
+                        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+                        $headers .= 'From: <webmaster@sportshowcase.com>' . "\r\n";
+
+                        mail($to, $subject, $message, $headers);
+                    }
+
                     $json = array("status" => 1, "response" => "success");
                 } else {
                     $json = array("status" => 0, "response" => "server error");

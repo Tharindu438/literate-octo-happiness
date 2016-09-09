@@ -51,7 +51,7 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
                 $headers = "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
-                $headers .= 'From: <webmaster@journeyapp.tk>' . "\r\n";
+                $headers .= 'From: <webmaster@sportshowcase.com>' . "\r\n";
 
                 mail($to,$subject,$message,$headers);
 
