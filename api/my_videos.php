@@ -26,6 +26,7 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
                 $line = array();
                 $line['id'] = $row['id'];
                 $line['video'] = $row['video'];
+                $line['description'] = $row['description'];
                 $line['uid'] = $row['uid'];
                 $line['category'] = $row['category'];
                 $line['title'] = $row['title'];

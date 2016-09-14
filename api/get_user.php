@@ -20,7 +20,7 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
 
         if ($result->num_rows == 1) {
 
-            $result = $db->query("SELECT `uid`, `login_type`, `username`, `fb_id`, `nick_name`, `first_name`, `last_name`, `dob`, `email`, `phone`, `mother`, `father`, `city`, `state`, `country`, `sport`, `started_year`, `registered_date`, `favorite1`, `favorite2`, `favorite3` FROM `users` WHERE `uid` = '$user'");
+            $result = $db->query("SELECT `uid`, `login_type`, `username`, `fb_id`, `nick_name`, `first_name`, `last_name`, `dob`, `email`, `phone`, `mother`, `father`, `city`, `state`, `country`, `sport`, `started_year`, `registered_date`, `favorite1`, `favorite2`, `favorite3`, `picture` FROM `users` WHERE `uid` = '$user'");
             if ($result->num_rows == 1) {
 
                 $data = $result->fetch_assoc();
@@ -29,7 +29,7 @@ if (!empty($_REQUEST['key']) && ($_REQUEST['key'] == APIKEY)) {
 
 
             } else {
-                $json = array("status" => 0, "response" => "user id exists");
+                $json = array("status" => 0, "response" => "user id not exists");
             }
 
         } else {
